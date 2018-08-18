@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>single-dog</title>
+    <script type="text/javascript" src="../js/balloon.js"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #ffd9e0;
+        }
+
+        div {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        audio {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<audio id="audio" src="../mp3/gaobaiqiqiu_mp3cut.net.mp3" autoplay="autoplay" controls></audio>
+
+<script>
+
+    // 创建气球对象，并添加到body中
+    for (var i = 0; i < 36; i++) {
+        var balloon = new Balloon();
+        balloon.show();
+        balloon.run();
+    }
+
+    // 头像
+    var count = 0;
+    var timer = setInterval(function () {
+        var balloon = new Balloon(picArray[count % picArray.length]);
+        balloon.show();
+        balloon.run();
+        count++;
+        console.log("count = " + count);
+        if (count == 6) {
+            clearInterval(timer);
+        }
+    }, 900);
+
+
+</script>
+</body>
+</html>
